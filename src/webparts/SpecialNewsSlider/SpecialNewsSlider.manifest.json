@@ -44,16 +44,16 @@
       "textPanelAlwaysOnTop": true,
       "textPanelOpacity": 0.4,
       "scoops": [{
-          "Title": "https://spjeff.sharepoint.com",
+          "Title": "https://tenant.sharepoint.com",
           "Enable": "true",
           "ListTitle":"Announcements",
           "ViewTitle":"All items"
         },
         {
-          "Title": "https://spjeff.sharepoint.com",
+          "Title": "https://tenant.sharepoint.com",
           "Enable": "true",
-          "ListTitle":"Custom",
-          "ViewTitle":"Custom"
+          "ListTitle":"Custom List",
+          "ViewTitle":"Custom View"
         }
       ]
     }
