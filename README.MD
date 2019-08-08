@@ -1,5 +1,5 @@
 # Special News Slider
-Updated to SPFX40 news slider that pulls data from multiple source SharePoint webs and lists.   Reads data from SPView for user defined query support.
+Updated to SPFX40 news slider that pulls data from multiple source SharePoint webs and lists.   Reads data from SPView for user defined query support from https://github.com/OlivierCC/spfx-40-fantastics/wiki/News-Slider
 
 
 # Web Part Type
