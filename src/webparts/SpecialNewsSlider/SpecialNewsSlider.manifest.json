@@ -1,0 +1,61 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "e1f2e67b-9c9e-48cc-b05c-3468049ab84d",
+  "alias": "SpecialNewsSlider",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "59a98142-add4-4747-8d48-029b0b0ab8d9",
+    "group": {
+      "default": "Special"
+    },
+    "title": {
+      "default": "Special News Slider"
+    },
+    "description": {
+      "default": "Special News Slider"
+    },
+    "officeFabricIconFontName": "NewsSearch",
+    "properties": {
+      "webPartTitle": "Special News Slider",
+      "enableArrows": true,
+      "enableBullets": true,
+      "enablePlayButton": false,
+      "enableFullscreenButton": false,
+      "enableZoomPanel": false,
+      "controlsAlwaysOn": true,
+      "preserveRatio": true,
+      "pauseOnMouseover": false,
+      "carousel": true,
+      "autoplay": true,
+      "speed": 2500,
+      "transition": "slide",
+      "enableProgressIndicator": false,
+      "textPanelEnable": true,
+      "textPanelAlwaysOnTop": true,
+      "textPanelOpacity": 0.4,
+      "scoops": [{
+          "Title": "https://spjeff.sharepoint.com",
+          "Enable": "true",
+          "ListTitle":"Announcements",
+          "ViewTitle":"All items"
+        },
+        {
+          "Title": "https://spjeff.sharepoint.com",
+          "Enable": "true",
+          "ListTitle":"Custom",
+          "ViewTitle":"Custom"
+        }
+      ]
+    }
+  }]
+}

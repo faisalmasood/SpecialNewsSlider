@@ -1,0 +1,44 @@
+declare interface ISpecialNewsSliderStrings {
+  SpecialNewsSliderPropertyPageGeneralPanel: string;
+  SpecialNewsSliderPropertyPageTextPanel: string;
+  SpecialNewsSliderGeneralPanelDataGroupName: string;
+  SpecialNewsSliderGeneralPanelGroupName: string;
+  SpecialNewsSliderTextPanelGroupName: string;
+  SpecialNewsSliderTextPanelEnableFieldLabel: string;
+  SpecialNewsSliderTextPanelAlwaysOnTopFieldLabel: string;
+  SpecialNewsSliderTextPanelOpacityFieldLabel: string;
+  SpecialNewsSliderTextPanelFontFieldLabel: string;
+  SpecialNewsSliderTextPanelFontSizeFieldLabel: string;
+  SpecialNewsSliderTextPanelBackgroundColorFieldLabel: string;
+  SpecialNewsSliderTextPanelAlignFieldLabel: string;
+  SpecialNewsSliderTextPanelFontColorFieldLabel: string;
+  SpecialNewsSliderNoDataMessage: string;
+  SpecialNewsSliderGeneralPanelEffectsGroupName: string;
+  SpecialNewsSliderGeneralPanelTransitionDropdownLabel: string;
+  SpecialNewsSliderGeneralPanelTransitionDropdownSlideOptionText: string;
+  SpecialNewsSliderGeneralPanelTransitionDropdownFadeOptionText: string;
+  SpecialNewsSliderGeneralPanelEnableProgressIndicatorToggleLabel: string;
+  SpecialNewsSliderGeneralPanelEnableArrowsToggleLabel: string;
+  SpecialNewsSliderGeneralPanelEnableBulletsToggleLabel: string;
+  SpecialNewsSliderGeneralPanelEnablePlayToggleLabel: string;
+  SpecialNewsSliderGeneralPanelEnableFullscreenToggleLabel: string;
+  SpecialNewsSliderGeneralPanelEnableZoomPanelToggleLabel: string;
+  SpecialNewsSliderGeneralPanelControlsAlwaysOnToggleLabel: string;
+  SpecialNewsSliderGeneralPanelPreserveRatioToggleLabel: string;
+  SpecialNewsSliderGeneralPanelPauseOnMouseoverToggleLabel: string;
+  SpecialNewsSliderGeneralPanelCarouselToggleLabel: string;
+  SpecialNewsSliderGeneralPanelAutoplayToggleLabel: string;
+  SpecialNewsSliderGeneralPanelSpeedSliderLabel: string;
+  SpecialNewsSliderGeneralPanelDataManagementLabel: string;
+  SpecialNewsSliderGeneralPanelDataManagementTableHeaderText: string;
+  SpecialNewsSliderGeneralPanelDataManagementTableTitleColumnDisplayName:string;
+  SpecialNewsSliderGeneralPanelDataManagementTableEnableColumnDisplayName:string;
+  SpecialNewsSliderGeneralPanelDataManagementTableDescriptionColumnDisplayName:string;
+  SpecialNewsSliderGeneralPanelDataManagementTablePictureColumnDisplayName:string;
+  SpecialNewsSliderGeneralPanelDataManagementTableLinkUrlColumnDisplayName:string;
+}
+
+declare module 'SpecialNewsSliderStrings' {
+  const strings: ISpecialNewsSliderStrings;
+  export = strings;
+}
