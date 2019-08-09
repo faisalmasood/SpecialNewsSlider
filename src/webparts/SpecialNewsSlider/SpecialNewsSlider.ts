@@ -44,9 +44,9 @@ export interface IWebPartTitle {
 
 /**
  * @interface
- * Used to store the scoop data.
+ * Used to store the source data.
  */
-export interface IScoop {
+export interface ISource {
   Enable: boolean;
   Title: string;
   ListTitle: string;
@@ -55,7 +55,7 @@ export interface IScoop {
 
 /**
  * @class
- * The Scoop web part class.
+ * The Special News Slider web part class.
  */
 export default class SpecialNewsSlider extends BaseClientSideWebPart<
   ISpecialNewsSliderProps
@@ -99,8 +99,8 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
     `;
     this.renderWebpartTitle();
     this.getsources().then(
-      (sources: IScoop[]) => {
-        this.renderScoopGallery(sources);
+      (sources: ISource[]) => {
+        this.renderSourceGallery(sources);
       },
       error => {
         console.error(error);
@@ -132,9 +132,9 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
   /**
    * @function
    * Render the data gallery.
-   * @param sources The scoop data objects.
+   * @param sources The source data objects.
    */
-  private renderScoopGallery(sources: IScoop[]) {
+  private renderSourceGallery(sources: ISource[]) {
     if (
       sources === null ||
       sources === undefined ||
@@ -168,12 +168,12 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
                 let getSPListItems = [];
                 for (var i = 0; i < sources.length; i++) {
                   // Skip
-                  var scoop: IScoop = sources[i];
-                  if (scoop.Enable === false) continue;
+                  var source: ISource = sources[i];
+                  if (source.Enable === false) continue;
 
                   // Current Web context
                   var webpart = this;
-                  let currentWeb: Web = new Web(scoop.Title);
+                  let currentWeb: Web = new Web(source.Title);
 
                   // SPFX
                   // from https://github.com/SharePoint/PnP-js-core/wiki
@@ -183,13 +183,13 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
                   // Collect promise array
                   getSPListItems.push(
                     currentWeb.lists
-                      .getByTitle(scoop.ListTitle)
+                      .getByTitle(source.ListTitle)
                       .get()
                       .then(function(listResp) {
                         return currentWeb.lists
-                          .getByTitle(scoop.ListTitle)
+                          .getByTitle(source.ListTitle)
                           .views
-                          .getByTitle(scoop.ViewTitle)
+                          .getByTitle(source.ViewTitle)
                           .get()
                           .then(function(viewResp) {
                             // SFPX
@@ -581,9 +581,9 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
    * @function
    * Get data from different data sources.
    */
-  protected getsources(): Promise<IScoop[]> {
-    return new Promise<IScoop[]>((resolve, reject) => {
-      let sources: IScoop[] = [];
+  protected getsources(): Promise<ISource[]> {
+    return new Promise<ISource[]>((resolve, reject) => {
+      let sources: ISource[] = [];
       let webPartsources = this.getsourcesFromWebPart();
       // As we plan to add additional data sources in the future, We will need to call the functions to get data from other data sources here.
       sources = sources.concat(webPartsources);
@@ -595,13 +595,13 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
    * @function
    * Get data from the web part itself.
    */
-  protected getsourcesFromWebPart(): IScoop[] {
-    return this.properties.sources.map(scoopItem => {
+  protected getsourcesFromWebPart(): ISource[] {
+    return this.properties.sources.map(sourceItem => {
       return {
-        Title: scoopItem["Title"],
-        Enable: scoopItem["Enable"].toString() == "true" ? true : false,
-        ListTitle: scoopItem["ListTitle"],
-        ViewTitle: scoopItem["ViewTitle"]
+        Title: sourceItem["Title"],
+        Enable: sourceItem["Enable"].toString() == "true" ? true : false,
+        ListTitle: sourceItem["ListTitle"],
+        ViewTitle: sourceItem["ViewTitle"]
       };
     });
   }
