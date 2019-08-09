@@ -43,7 +43,7 @@
       "textPanelEnable": true,
       "textPanelAlwaysOnTop": true,
       "textPanelOpacity": 0.4,
-      "scoops": [{
+      "sources": [{
           "Title": "https://tenant.sharepoint.com",
           "Enable": "true",
           "ListTitle":"Announcements",

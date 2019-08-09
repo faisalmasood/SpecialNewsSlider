@@ -4,7 +4,7 @@
  */
 export interface ISpecialNewsSliderProps {
   webPartTitle: string;
-  scoops: any[];
+  sources: any[];
   enableArrows: boolean;
   enableBullets: boolean;
   enablePlayButton: boolean;

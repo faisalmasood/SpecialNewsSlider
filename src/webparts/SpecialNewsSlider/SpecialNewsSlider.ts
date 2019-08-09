@@ -98,9 +98,9 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
     </div>
     `;
     this.renderWebpartTitle();
-    this.getScoops().then(
-      (scoops: IScoop[]) => {
-        this.renderScoopGallery(scoops);
+    this.getsources().then(
+      (sources: IScoop[]) => {
+        this.renderScoopGallery(sources);
       },
       error => {
         console.error(error);
@@ -132,13 +132,13 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
   /**
    * @function
    * Render the data gallery.
-   * @param scoops The scoop data objects.
+   * @param sources The scoop data objects.
    */
-  private renderScoopGallery(scoops: IScoop[]) {
+  private renderScoopGallery(sources: IScoop[]) {
     if (
-      scoops === null ||
-      scoops === undefined ||
-      (scoops !== null && scoops !== undefined && scoops.length == 0)
+      sources === null ||
+      sources === undefined ||
+      (sources !== null && sources !== undefined && sources.length == 0)
     ) {
       this.renderMessage(strings.SpecialNewsSliderNoDataMessage);
     } else {
@@ -166,9 +166,9 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
 
                 // Promise Array
                 let getSPListItems = [];
-                for (var i = 0; i < scoops.length; i++) {
+                for (var i = 0; i < sources.length; i++) {
                   // Skip
-                  var scoop: IScoop = scoops[i];
+                  var scoop: IScoop = sources[i];
                   if (scoop.Enable === false) continue;
 
                   // Current Web context
@@ -364,10 +364,10 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
             {
               groupName: strings.SpecialNewsSliderGeneralPanelDataGroupName,
               groupFields: [
-                PropertyFieldCustomList("scoops", {
+                PropertyFieldCustomList("sources", {
                   label:
                     strings.SpecialNewsSliderGeneralPanelDataManagementLabel,
-                  value: this.properties.scoops,
+                  value: this.properties.sources,
                   headerText:
                     strings.SpecialNewsSliderGeneralPanelDataManagementTableHeaderText,
                   fields: [
@@ -581,13 +581,13 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
    * @function
    * Get data from different data sources.
    */
-  protected getScoops(): Promise<IScoop[]> {
+  protected getsources(): Promise<IScoop[]> {
     return new Promise<IScoop[]>((resolve, reject) => {
-      let scoops: IScoop[] = [];
-      let webPartScoops = this.getScoopsFromWebPart();
+      let sources: IScoop[] = [];
+      let webPartsources = this.getsourcesFromWebPart();
       // As we plan to add additional data sources in the future, We will need to call the functions to get data from other data sources here.
-      scoops = scoops.concat(webPartScoops);
-      resolve(scoops);
+      sources = sources.concat(webPartsources);
+      resolve(sources);
     });
   }
 
@@ -595,8 +595,8 @@ export default class SpecialNewsSlider extends BaseClientSideWebPart<
    * @function
    * Get data from the web part itself.
    */
-  protected getScoopsFromWebPart(): IScoop[] {
-    return this.properties.scoops.map(scoopItem => {
+  protected getsourcesFromWebPart(): IScoop[] {
+    return this.properties.sources.map(scoopItem => {
       return {
         Title: scoopItem["Title"],
         Enable: scoopItem["Enable"].toString() == "true" ? true : false,
